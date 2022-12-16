@@ -32,6 +32,8 @@ jobs:
 
     - name: Set defaults if no inputs (push to master event)
       if: github.event.inputs.channels == ''
+      env:
+        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       run: |
         ./slack-inviter -channels infosec,tooprivate -debug -emails luis@sanmartin.dev -private -action add
 
