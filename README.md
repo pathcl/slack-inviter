@@ -34,6 +34,8 @@ _* Set `private` flag to `true` if you want to invite users to private channels.
 
 You'll need to set SLACK_TOKEN as environment variable.
 
+    $ curl -LO https://github.com/pathcl/slack-inviter/releases/download/v0.3/slack-inviter_0.3_Darwin_x86_64.tar.gz
+    $ tar xfvz slack-inviter_0.3_Darwin_x86_64.tar.gz && chmod a+x slack-inviter
     $ export SLACK_TOKEN=mytoken
     $ ./slack-inviter -channels infosec -debug -emails luis@sanmartin.dev -private -action add
 
@@ -46,6 +48,10 @@ You'll need to set SLACK_TOKEN as environment variable.
     Users invited to 'infosec'
 
     All done! You're welcome =)
+
+or if you have docker
+
+    $ docker run -it -e SLACK_TOKEN=my-slack-token pathcl/slack-inviter:0.3 /slack-inviter -channels infosec,tooprivate -emails luis@sanmartin.dev -private -debug
 
 
 ## Remove users from channels?
