@@ -5,7 +5,7 @@ I'd like to invite users to private slack channels instead of manually adding th
 
 ## Demo
 
-
+[here](https://github.com/pathcl/slack-inviter/actions/runs/3713106336)
 
 
 ## Instructions
