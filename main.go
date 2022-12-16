@@ -78,7 +78,7 @@ type (
 // 2) Query all public (private if 'private' flag is set to true) channels in the workspace and create a name -> ID mapping
 // 3) For each of the given channels, invite the users (user IDs) to the channel (channel ID)
 func main() {
-	var apiToken string
+	apiToken := os.Getenv("SLACK_TOKEN")
 	var action string
 	var emails string
 	var channelsArg string
@@ -86,7 +86,6 @@ func main() {
 	var debug bool
 
 	// parse flags
-	flag.StringVar(&apiToken, "api_token", "", "Slack OAuth Access Token")
 	flag.StringVar(&action, "action", "add", "'add' to invite users, 'remove' to remove users")
 	flag.StringVar(&emails, "emails", "", "Comma separated list of Slack user emails to invite")
 	flag.StringVar(&channelsArg, "channels", "", "Comma separated list of channels to invite users to")

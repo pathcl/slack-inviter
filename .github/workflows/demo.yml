@@ -10,10 +10,12 @@ on:
         type: string
         description: Which channels to be added
         required: true
+        default: 'infosec,tooprivate'
       emails:
         type: string
         description: Which user email
         required: true
+        default: 'luis@sanmartin.dev'
 
 jobs:
   inviteUsers:
@@ -30,5 +32,7 @@ jobs:
 
 
     - name: Add user(s) to private channels
+      env:
+        SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       run: |
-        echo ./slack-inviter -channels "${{ github.event.inputs.channels }}" -debug -emails "${{ github.event.inputs.emails }}" -private -action add -api_token my-token
+        ./slack-inviter -channels "${{ github.event.inputs.channels }}" -debug -emails "${{ github.event.inputs.emails }}" -private -action add
