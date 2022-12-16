@@ -32,8 +32,10 @@ _* Set `private` flag to `true` if you want to invite users to private channels.
 
 ## Usage
 
+You'll need to set SLACK_TOKEN as environment variable.
 
-    slack-inviter $ ./slack-inviter -channels infosec -debug -emails luis@sanmartin.dev -private -action add -api_token my-token
+    $ export SLACK_TOKEN=mytoken
+    $ ./slack-inviter -channels infosec -debug -emails luis@sanmartin.dev -private -action add
 
     Looking up users ...
     Valid user (ID: U03E9M7A44Q) found for 'luis@sanmartin.dev'
@@ -49,9 +51,5 @@ _* Set `private` flag to `true` if you want to invite users to private channels.
 ## Remove users from channels?
 Simply set the optional `action` flag to `remove` (`add` is the default):
 
-`slack-inviter -api_token=<user-oauth-token> -action=remove -emails=kd@example.com -channels=dubnation,warriors -private=<true|false>`
+    $ slack-inviter -action=remove -emails=kd@example.com -channels=dubnation,warriors -private=<true|false>
 
-
-## TODO:
-
-maybe convert it to a github action
