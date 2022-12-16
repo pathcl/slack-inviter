@@ -1,0 +1,27 @@
+name: demo
+on:
+  push:
+    branches:
+      - "master"
+
+  workflow_dispatch:
+    inputs:
+      channels:
+        type: string
+        description: Which channels to be added
+        required: true
+      user:
+        type: string
+        description: Which user email
+        required: true
+        default: 'email@domain.tld'
+
+jobs:
+  demo:
+    name: demo for slack inviter
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Add user to channels
+      run: echo ./slack-inviter -channels "${{ github.event.inputs.channels }}"
