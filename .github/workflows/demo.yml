@@ -39,6 +39,7 @@ jobs:
 
 
     - name: Add user(s) to private channels
+      if: github.event.inputs.channels != '' && github.event.inputs.emails != ''
       env:
         SLACK_TOKEN: ${{ secrets.SLACK_TOKEN }}
       run: |
