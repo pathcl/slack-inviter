@@ -26,8 +26,8 @@ jobs:
 
     - name: Download slack-inviter
       run: |
-        curl -LO https://github.com/pathcl/slack-inviter/releases/download/v0.1/slack-inviter_0.1_Linux_x86_64.tar.gz
-        tar xfvz slack-inviter_0.1_Linux_x86_64.tar.gz
+        curl -LO https://github.com/pathcl/slack-inviter/releases/download/v0.2/slack-inviter_0.2_Linux_x86_64.tar.gz
+        tar xfvz slack-inviter_0.2_Linux_x86_64.tar.gz
         chmod a+x slack-inviter
 
 
