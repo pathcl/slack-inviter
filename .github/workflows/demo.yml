@@ -1,4 +1,4 @@
-name: demo
+name: Invite user(s) to slack
 on:
   push:
     branches:
@@ -10,15 +10,14 @@ on:
         type: string
         description: Which channels to be added
         required: true
-      user:
+      emails:
         type: string
         description: Which user email
         required: true
-        default: 'email@domain.tld'
 
 jobs:
-  demo:
-    name: demo for slack inviter
+  inviteUsers:
+    name: Adding users to slack
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -30,5 +29,6 @@ jobs:
         chmod a+x slack-inviter
 
 
-    - name: Add user to channels
-      run: echo ./slack-inviter -channels "${{ github.event.inputs.channels }}"
+    - name: Add user(s) to private channels
+      run: |
+        echo ./slack-inviter -channels "${{ github.event.inputs.channels }}" -debug -emails "${{ github.event.inputs.emails }}" -private -action add -api_token my-token
