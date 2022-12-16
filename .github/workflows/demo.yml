@@ -30,6 +30,10 @@ jobs:
         tar xfvz slack-inviter_0.2_Linux_x86_64.tar.gz
         chmod a+x slack-inviter
 
+    - name: Set defaults if no inputs (push to master)
+      if: github.event.inputs.channels == ''
+      run: |
+        echo "helloworld"
 
     - name: Add user(s) to private channels
       env:
